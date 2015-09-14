@@ -145,17 +145,17 @@ public class SingleGUI extends JPanel {
         outputScroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         this.add(outputText);
         this.add(outputScroller);
-               Path file = FileSystems.getDefault().getPath("output.txt");  //Output file path - ("Whatever Folder has file", "Filename.txt")
-            try(InputStream in = Files.newInputStream(file);
-                    BufferedReader reader =
-                            new BufferedReader(new InputStreamReader(in))){
-                String line = null;
-                while((line = reader.readLine()) != null){
-                    outputText.append(line + "\n");;
-                }
-            } catch (IOException x){
-                System.err.println(x);
-            }           
+//               Path file = FileSystems.getDefault().getPath("output.txt");  //Output file path - ("Whatever Folder has file", "Filename.txt")
+//            try(InputStream in = Files.newInputStream(file);
+//                    BufferedReader reader =
+//                            new BufferedReader(new InputStreamReader(in))){
+//                String line = null;
+//                while((line = reader.readLine()) != null){
+//                    outputText.append(line + "\n");;
+//                }
+//            } catch (IOException x){
+//                System.err.println(x);
+//            }           
         
     }
     
@@ -173,15 +173,15 @@ public class SingleGUI extends JPanel {
         String className = nameOfClassTextField.getText();
         
         int runNumber = 1;
-        String studentName = "smithjq";
-        String studentHandle = "fpm5022";
+        String studentName = "mudgett";
+        String studentHandle = "412mudgett";
         String classPath = compilePathDirectory + className + studentName;
-        String sourcePath = "/Users/Feek/repos/412ProjectGrader/src"; // hard coded for now. #14 will fix
-        String studentPath = sourcePath + "/" + studentName;
+        String sourcePath = "C:\\Users\\hites\\Desktop"; // hard coded for now. #14 will fix
+        String studentPath = sourcePath + "\\" + studentName;
         String outputFileName = "output.txt";
-        String mainClassName = "ArrayLoops.java"; // hard coded for now. #14 will fix
+        String ClassName = "ArrayLoops.java"; // hard coded for now. #14 will fix
         
-        Compiler compiler = new Compiler(runNumber, studentName, studentHandle, compilePathDirectory, classPath, sourcePath, studentPath, outputFileName, mainClassName);
+        Compiler compiler = new Compiler(runNumber, studentName, studentHandle, compilePathDirectory, classPath, sourcePath, studentPath, outputFileName, ClassName);
         int success = compiler.compileJava();
         
         System.out.println(compilePathDirectory);
